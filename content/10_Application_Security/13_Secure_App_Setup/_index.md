@@ -1,5 +1,5 @@
 +++
-title = "Lab Environment"
+title = "Secure App Setup"
 chapter = false
 weight = 3
 +++
@@ -18,7 +18,7 @@ Though not relevant to this lab exercise, Cisco Secure Application works well al
 
 ## Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;
 
-We'll walk through some hands-on exercises with **Cisco Secure Application**.
+We'll walk through the steps to **access the lab environment**.
 
 <br>
 

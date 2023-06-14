@@ -23,22 +23,6 @@ In this lab you will:
 
 ## Libraries Dashboard
 
-<!-- SEC LITE VS FULL START -->
-
-<!-- FULL -->
-<!--
-<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Use the credentials used previously to <a href="https://www.fsolabs.net/20_lab_environment/23_finalize_setup.html#verify-appdynamics-agents" target="_blank">**login to the AppDynamics controller**</a> if you've been logged out.
--->
-<!-- FULL -->
-
-
-<!-- LITE -->
-
-<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Use the credentials used previously to <a href="https://lt.fsolabs.net/20_lab_environment_lt/21_lab_login_steps.html#login-to-appdynamics" target="_blank">**login to the AppDynamics controller**</a> if you've been logged out.
-
-<!-- LITE -->
-
-<!-- SEC LITE VS FULL END -->
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Use the steps you used previously to [**navigate to the Secure Application Dashboard**]({{< ref "/21_understanding_app_security_state.html#appdynamics-application-dashboard" >}} "**navigate to the Secure Application Dashboard**") if you've been logged out.
 
@@ -59,33 +43,6 @@ In the above example let's say your 'teastore-webui' service is the bread and bu
 
 <br>
 
-
-<!--
-![alt text for screen readers](/images/23/libraries.png)
-
-**(#2)** The above screen shows all the libraries that are used by our application 'Log4Shell'. 
-If you remember, we had limited our scope to show results for this application only (Top Right 
-corner of the above screen **(#3)**). Additionally, it also tells us the Type of the Application 
-(Java in this case) and which Tier or Service is using a particular Library. It also tells us how 
-many Nodes are affected with vulnerable Libraries. In our example, you know your 'Tier1' is affected 
-and there is one (1) Node in this Tier that needs to be worked on.
-
-This screen is crucial while applying a Risk Based approach towards remediation. Let us explore this further.
-
-**(#4)** More importantly, it tells you how many vulnerabilities with their respective Severity 
-Levels are present in a particular Library. Here, your Application has three vulnerable Libraries 
-with their respective Risk Scores: 33.1, 5.9 and 4.3.
-
-**(#5)** Secure Application also suggests you the version of the library (Remediation Candidate) that can 
-remediate those vulnerabilities in the respective Libraries.
-
-In the above example, let us say your Tier1 service is the bread and butter of your business and you can't afford
-any downtime with this Tier. It also has a Risk score of 33.1 with two critical vulnerabilities. This 
-must be considered while deciding and prioritizing your remediation efforts. 
-
-You can now pass on this information to the DevOps Team. Your DevOps Team will be delighted to get this type of information.
-
--->
 
 ## Summary
 

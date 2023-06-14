@@ -40,13 +40,3 @@ We'll learn about **Application Security** and how current challenges require a 
 <br>
 
 
-
-<!-- 
-## Learning Objective:
-
-**You'd be working on Cisco Secure Application during the lab exercise that follows. You'd learn how Cisco Secure 
-Application extends the current performance monitoring capabilities of AppDynamics to provide continuous 
-monitoring for vulnerabilities, runtime detection of exploits, and real-time defense against a broad 
-range of attacks.**
-
--->
