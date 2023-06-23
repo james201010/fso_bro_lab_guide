@@ -25,9 +25,9 @@ date: 2021-01-25T12:52:26-07:00
 * SecOps: By providing runtime anomaly detection and prevention with strategic prioritization based on Business Impact
 
 
-## Section's Structure  
+## Workshop Structure  
 
-This section covers one main topic:
+This workshop covers one main topic:
 
 * [Application Security]({{< ref "/10_Application_Security.html" >}} "Application Security")
 
