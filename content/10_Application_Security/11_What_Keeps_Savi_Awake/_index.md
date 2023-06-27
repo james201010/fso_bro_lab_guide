@@ -19,8 +19,9 @@ than just saying “I found something at this URL, can you fix it?”, Savi want
 team with exact data points and tell them – “I found vulnerability CVE–XXXX-XXXXX in the ‘Checkout’ 
 Service Tier of the Application ‘TeaStore’; here is the details of the vulnerability with adversary 
 tactics and techniques; this is how bad (severe) it is based on the Common Vulnerability Scoring 
-System (CVSS) score and here are the remediation steps.” This kind of information can be a huge time 
-saver for the DevOps team.
+System (CVSS) score; this is the likelihood of exploitation based on real-time events (Kenna); you can 
+prioritize remediations based on the impact a vulnerability has on important business transactions,
+and here are the remediation steps.” This kind of information can be a huge time  saver for the DevOps team.
 
 Savi and her team want to work and solve the following pain points:
 

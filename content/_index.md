@@ -16,6 +16,7 @@ date: 2021-01-25T12:52:26-07:00
 
 * Understand how Cisco Secure Application and AppDynamics bring more value together
 * Get hands on experience on how Cisco Secure Application extends the current performance monitoring capabilities of AppDynamics
+* Recognize how you can use Business Risk Observability (BRO) to prioritize vulnerabilities based on real-world trends and business impact.
 * Explore scenarios where vulnerabilities, runtime detection of exploits, and real-time defense against a broad range of attacks can be quickly analyzed and triaged
 
 
