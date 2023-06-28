@@ -30,6 +30,6 @@ https://channel.saas.appdynamics.com
 
 ## Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;
 
-We'll walk through some hands-on exercises with **Cisco Secure Application**.
+You'll walk through some hands-on exercises with **Cisco Secure Application**.
 
 <br>
