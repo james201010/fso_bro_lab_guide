@@ -5,7 +5,7 @@ date: 2021-01-25T12:52:26-07:00
 
 # FSO Security
 
-#### In this "Better Together" story let's explore how Cisco Secure Application and AppDynamics combined capabilities enable SecOps teams to gain a deeper visibility into vulnerabilities, runtime detection of exploits, and real-time defense against attacks.
+#### In this "Better Together" story you will explore how Cisco Secure Application and AppDynamics combined capabilities enable SecOps teams to gain a deeper visibility into vulnerabilities, runtime detection of exploits, and real-time defense against attacks.
 
 ![image](/images/fso_solution_sec.png)
 

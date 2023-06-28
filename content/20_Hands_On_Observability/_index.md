@@ -14,7 +14,7 @@ with Ali during this exercise.&nbsp;Your job is to make sure Ali achieves his go
 
  Ali wants to secure his application against the log4j CVE-2021-44228 vulnerability that can result in remote code execution giving complete control over the application and underlying system.
 
-To achieve the above, we will take Ali through the following steps:
+To achieve the above, you will take Ali through the following steps:
 
 1. Access Business Risk Profile
 2. Detect if the vulnerability (log4j CVE-2021-44228) is actually present in the application
@@ -27,6 +27,6 @@ To achieve the above, we will take Ali through the following steps:
 
 ## Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;
 
-We'll look at the **current security state** of the application.
+You will look at the **current security state** of the application.
 
 <br>

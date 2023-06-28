@@ -7,7 +7,7 @@ weight = 22
 
 ## Introduction
 
-In the previous lab 'Understanding Security State of an Application' you obtained some actionable information and learned how the Dashboard made it easy to understand the state of an application. We will explore this further in the following lab ('Business Risk Profiling and Prioritization'). But now that we know we have some open vulnerabilities that carry critical and high severity levels, our immediate priority should be to make sure adversaries are not able to exploit these vulnerabilities or do any further damage.
+In the previous lab 'Understanding Security State of an Application' you obtained some actionable information and learned how the Dashboard made it easy to understand the state of an application. You will explore this further in the following lab ('Business Risk Profiling and Prioritization'). But now that you know you have some open vulnerabilities that carry critical and high severity levels, your immediate priority should be to make sure adversaries are not able to exploit these vulnerabilities or do any further damage.
 
 <br>
 
@@ -33,7 +33,7 @@ In this lab you will:
 2. In this column you see the specific types of vulnerabilities that have been detected
 3. Look at the **Kenna Score** that provides an estimate of exploitation likelihood for each vulnerability. See [Vulnerability Scoring in Kenna](https://help.kennasecurity.com/hc/en-us/articles/360026160592-Vulnerability-Scoring-in-Kenna) for more details about the scoring mechanism.
 4. Note if there is an exclamation point in the **Reached** column indicating that the vulnerable code has been reached
-5. In the **Application** column, you can see the application that is vulnerable (in our case, it is only our TeaStore application, since you have limited the scope). The columns next to it indicate the exact application tier and library associated with the vulnerability, which makes it easier for application maintainers to proceed with remediation.
+5. In the **Application** column, you can see the application that is vulnerable (in this case, it is only your TeaStore application, since you have limited the scope). The columns next to it indicate the exact application tier and library associated with the vulnerability, which makes it easier for application maintainers to proceed with remediation.
 6. The **Status** column tells us if a particular vulnerability has been Detected, Confirmed, Fixed, Ignored, or Not Vulnerable
 
 ![image](/images/20_hands_on/attack_detect_01_B.png)
@@ -54,7 +54,7 @@ In this lab you will:
 
 
 
-<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Now we can see more detail about the vulnerability and possible remediation steps for it.
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Now you can see more detail about the vulnerability and possible remediation steps for it.
 
 1. The **Kenna Score** widget provides some real-time details about whether this vulnerability is part of an active internet breach, whether it is easily exploitable, whether it is a popular target, and so on.
    - It describes how attackers exploit this vulnerability and further detail on suggested remediation steps
@@ -106,7 +106,7 @@ Next, make sure this policy is doing it's job and blocking the attacks.
 
 
 
-<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Now we are looking at the **Attack Details** screen.
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Now you are looking at the **Attack Details** screen.
 
 1. Observe the **Timestamp** and the **Affected Node**
 2. Look at the vulnerability details such as:
@@ -129,7 +129,7 @@ As highlighted below, it confirms a line with 'org.apache.logging.log4j.core.net
 
 ## Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;
 
-We'll take a look at how we can use **Cisco Secure Application** for **Risk Profiling and Prioritization**.
+You'll take a look at how you can use **Cisco Secure Application** for **Risk Profiling and Prioritization**.
 
 <br>
 
