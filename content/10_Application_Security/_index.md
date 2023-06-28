@@ -22,7 +22,7 @@ make the Application vulnerable despite all the efforts of the pre-production te
 world where Security Team is focussed on Vulnerabilities and Threats, and App Team is focussed on 
 Application Topologies, Savi (Sr. Director, Cyberdefense, Bridge to Possibili-Tea) wondered if it 
 was possible to have a Security Solution that could bring multiple teams together and reduce MTTD and 
-the MTTR. 
+the MTTR, while having the business risk in mind as well. 
 
 ![image](/images/10_app_security/savi.png)
 
@@ -34,7 +34,8 @@ approach to security. She wanted a solution that offers â€˜Inside-Out Securityâ€
 - Be closer to the application runtime
 - Continuously evaluate the Application for security
 - Share context with different teams based on metrices from Application Performance Monitoring (APM) 
-and Business Intelligence (BiQ) and
+and Business Intelligence (BiQ)
+- Assess which vulnerabilities pose the greatest risk to the organization and prioritize vulnerability remediation based on that business risk.
 - Be adaptive for the Application
 
 

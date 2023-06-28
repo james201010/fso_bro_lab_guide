@@ -5,7 +5,7 @@ weight = 20
 +++
 
 **Ali is the Lead SecOps Engineer who works for Savi at Bridge to Possibili-Tea. You will be working
-with Ali during this exercise. &nbsp; Your job is to make sure Ali achieves his goals for which Bridge to Possibili-Tea bought Cisco Secure Application.**
+with Ali during this exercise.&nbsp;Your job is to make sure Ali achieves his goals for which Bridge to Possibili-Tea bought Cisco Secure Application.**
 
 ![image](/images/20_hands_on/ali.png)
 

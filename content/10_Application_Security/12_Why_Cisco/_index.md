@@ -25,7 +25,7 @@ It simplifies the life cycle of vulnerability fixes and security incidents. New 
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; **Strategic prioritization based on Business Impact** 
 
-Vulnerability data is correlated to the application and business context so that application and security teams can prioritize, execute, and track remediation by business impact.
+Vulnerability data is correlated to the application and business context so that application and security teams can prioritize, execute, and track remediation by business impact. Rather than just using a static Common Vulnerability Scoring System (CVSS) to measure the severity of a vulnerability, customers can also use Business Risk Observability (BRO), which provides an intelligent assessment of business risk based on a combination of factors such as the likelihood of exploitation, the impact of the vulnerability on critical business transactions, third-party API vulnerabilities, etc.
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; **No more siloed teams** 
 

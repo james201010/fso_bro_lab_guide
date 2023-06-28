@@ -19,15 +19,15 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
 1. Click on the **Applications** tab on the top menu
 2. Find your **TeaStore application** with **your lab number in the name** and **click on its name** to open it
 
-![image](/images/20_hands_on/security_state_01.png)
+![image](/images/20_hands_on/security_state_01_B.png)
 
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The **Application Dashboard** displays showing the components that comprise the TeaStore application. 
 
-1. The **Security Health** widget shows us if we have any Critical or Warning events
+1. The **Security Health** widget displays the Business Risk Score in real time, the number of vulnerabilities divided by criticality, and the number of attacks that either compromised the security of your application, were blocked by the CSA attack policy, or the malicious activity was detected but not exploited.
 2. Click on the **Security Health** link to launch the **Secure Application** dashboard
 
-![image](/images/20_hands_on/security_state_02.png)
+![image](/images/20_hands_on/security_state_02_B_1.png)
 
 <br>
 
@@ -38,18 +38,20 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
 
 1. Navigate to the Home page by clicking the **Home** tab on the top menu
 
-2. The **Business Transactions** pane shows the number of business transactions based on their risk score detected along with the **Top Recommended Actions**
+2. The **Business Transactions** pane shows the number of business transactions based on their risk status detected, alongside the daily **Busines Risk Score**, and **Top Recommended Actions**.
+  - There are 3 business risk statuses based on the score:
+      - **Normal**: 0-330 &nbsp; **Warning**: 340-660 &nbsp; **Critical**: 670-1000
 
 3. The **Vulnerabilities** pane shows the number of both **Open** and **Fixed** vulnerabilities. 
 
   - The chart in the left represents the total number of vulnerabilities based on their risk score.
   - The color of the chart displays the number of vulnerabilities for different severity levels:
      - **Critical** = Red &nbsp; **High** = Orange &nbsp; **Medium** = Yellow &nbsp; **Low** = Purple
-  - **Days Since First Detected** shows the number of days the vulnerability has been open for and it's severity
-  - **Severity Trend** shows the trend of fixing the open vulnerabilities
+  - **Severity Trend** shows the number of security vulnerabilities by severity in a given period.
+  - **Days Since First Detected** shows the number of days since the vulnerability has been open and its severity level.
 
 
-![image](/images/20_hands_on/security_state_03.png)
+![image](/images/20_hands_on/security_state_03_B.png)
 
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Scroll down the screen to see the **Attacks** and **Applications** pane.
@@ -68,7 +70,7 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
   - **Enabled Nodes** Number of Ready nodes that have a Security Setting value of Enable.
   - **Secured Nodes** Number of Enabled nodes that are sending security insights to the Secure Application service.
 
-![image](/images/20_hands_on/security_state_04.png)
+![image](/images/20_hands_on/security_state_04_B.png)
 
 <br>
 
@@ -78,6 +80,7 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Just by looking at the **Home** page of his Secure Application Dashboard, Ali has not only learned about his application and it's security state but he also has actionable information.
 
 - Number of Open Vulnerabilities, their severity levels and the lifespan of those open vulnerabilities
+- The business impact of vulnerabilities based on the Business Risk Score
 - Open attacks that needs to be fixed and their states 
 - Top Applications with open attacks and event types
 - Nodes of the application(s) that needs to be enabled and secured
