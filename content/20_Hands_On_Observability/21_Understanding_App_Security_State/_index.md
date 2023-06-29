@@ -72,6 +72,38 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
 
 ![image](/images/20_hands_on/security_state_04_B.png)
 
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Next, you'll learn an alternative way to get into security monitoring while keeping an eye on the application performance dashboard.
+
+1. If you are in the CSA dashboard, scroll up and click the icon next to the name of your application
+    - Alternatively, you can return to the AppDynamics APM Controller and open your application's dashboard as you did in the first step.
+
+![image](/images/20_hands_on/security_state_05.png)
+
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The application dashboard is the main source of information about application performance, but it also serves as a starting point when you want to look at other aspects of application observability, in your case application security. Previously, you used the **Security Health** widget to get into the CSA dashboard. Now you'll see that you can examine the performance and business risk of the application's business transactions in a single view, and then dive deeper into security as needed.
+
+1. Click on **Business Transactions** menu button.
+
+![image](/images/20_hands_on/security_state_06.png)
+
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Business transactions are key objects when it comes to monitoring application performance. But they also involve business risk associated with each of those transactions. AppSec teams can use this to decide if there is a security risk associated with any of the important business transactions.
+
+1. Click the **Business Risk** column heading to sort transactions by business risk in descending order.
+2. Double click on the business transaction with the highest business risk
+
+![image](/images/20_hands_on/security_state_07.png)
+
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The following view focuses only on the selected business transaction.
+
+1. Click on the **Business Risk** link within the **Security Health** widget.
+
+![image](/images/20_hands_on/security_state_08.png)
+
+
+<span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; From monitoring the performance of business transactions of the application, you quickly moved to business risk observability, where you can see the details about the security risk of business transactions, the associated vulnerabilities, attacks and options to address the risk. 
+
+You will learn more about **Business Risk Observability** and its features in later exercises.
+
+![image](/images/20_hands_on/security_state_09.png)
 <br>
 
 
@@ -89,7 +121,7 @@ Ali wants to have actionable information. In this lab, you will make sure Ali ha
 
 ## Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;
 
-We'll look at how **Cisco Secure Application** easily enables **Attack Detection and Prevention** for your business crititcal applications.
+You'll look at how **Cisco Secure Application** easily enables **Attack Detection and Prevention** for your business crititcal applications.
 
 <br>
 
