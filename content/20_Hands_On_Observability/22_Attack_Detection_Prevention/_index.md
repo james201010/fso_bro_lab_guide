@@ -50,6 +50,7 @@ In this lab you will:
       - In general, you should focus more on the Kenna score than the CVSS score, because a low severity vulnerability (CVSS) may bring a high exploitation risk (Kenna) to your environment, while a high severity vulnerability may have little impact on the security of your application
 5. Click on the **CVE-2021-44228** link under **ID** column, taking you to the vulnerability detail page
 
+
 ![image](/images/20_hands_on/attack_detect_02_B.png)
 
 
@@ -64,7 +65,7 @@ In this lab you will:
 4. You can click on the external link next to **CVE-2021-44228** in the **ID** area
    - This will take you to the NIST website where you can learn more about this vulnerability (as seen in the next image)
 
-_
+
 ![image](/images/20_hands_on/attack_detect_03_B.png)
 
 <span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Example of the NIST website for **CVE-2021-44228**
