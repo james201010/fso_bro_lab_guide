@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    
+      <!-- Tracking JS here -->
+      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex"> 
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="description" content="Cisco Full Stack Observability Labs">
+<meta name="author" content="Wayne Brown">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Understanding Security State :: Full Stack Observability Labs</title>
+ 
+ 
+    
+    <link href="/css/nucleus.css?1690387749" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1690387749" rel="stylesheet">
+    <link href="/css/hybrid.css?1690387749" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1690387749" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1690387749" rel="stylesheet">
+    <link href="/css/auto-complete.css?1690387749" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1690387749" rel="stylesheet">
+    <link href="/css/theme.css?1690387749" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1690387749" rel="stylesheet">
+    
+    <link href="/css/theme-mine.css?1690387749" rel="stylesheet">
+    
+    
+ 
+    <script src="/js/jquery-3.3.1.min.js?1690387749"></script>
+ 
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/20_hands_on_observability/21_understanding_app_security_state.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo"
+  href='/'>
+  <svg xmlns="http://www.w3.org/2000/svg" width="108" height="57" viewBox="0 0 108 57" role="img">
+    <title id="fwt-logo-title">Cisco.com Worldwide</title>
+    <defs>
+      <path d="M0 22.769a2.348 2.348 0 0 0 3.935 1.545c.434-.403.7-.955.744-1.545v-5.2a2.34 2.34 0 0 0-4.679 0v5.2"
+        id="bar_short" class="bar"></path>
+      <path
+        d="M12.95 22.769a2.349 2.349 0 0 0 2.34 2.171 2.346 2.346 0 0 0 2.339-2.171V11.112a2.341 2.341 0 0 0-4.679 0V22.77"
+        id="bar_tall" class="bar"></path>
+      <path d="M25.832 27.464a2.345 2.345 0 0 0 4.678 0V2.249a2.342 2.342 0 0 0-4.678 0v25.215" id="bar_grande"
+        class="bar"></path>
+      <path
+        d="M24.026 56.277v-5.002l-.098.043a9.253 9.253 0 0 1-3.605.915 5.303 5.303 0 0 1-3.63-1.07 4.644 4.644 0 0 1-1.58-2.244 5.395 5.395 0 0 1-.106-3 4.6 4.6 0 0 1 1.609-2.566 4.823 4.823 0 0 1 2.528-1.09 8.332 8.332 0 0 1 4.774.895l.108.056v-5.03l-.228-.061a12.78 12.78 0 0 0-4.552-.596 10.534 10.534 0 0 0-4.065.93 9.29 9.29 0 0 0-3.329 2.572 10.014 10.014 0 0 0-.182 12.18 9.546 9.546 0 0 0 5.292 3.403c2.211.538 4.528.456 6.697-.234l.367-.101"
+        id="cisco_c"></path>
+    </defs>
+    <g fill="#fff" fill-rule="evenodd">
+      <use href="#cisco_c"></use>
+      <use href="#cisco_c" x="49.5"></use>
+      <path
+        d="M41.69 52.125l-.019 4.308.315.054c.989.185 1.987.313 2.99.385a18.1 18.1 0 0 0 2.642.051c.842-.06 1.675-.218 2.48-.468a6.862 6.862 0 0 0 2.573-1.371 5.19 5.19 0 0 0 1.498-2.148 5.912 5.912 0 0 0-.03-4.324 4.852 4.852 0 0 0-1.343-1.862 5.568 5.568 0 0 0-1.97-1.147l-3.25-1.206a1.742 1.742 0 0 1-.887-.845 1.107 1.107 0 0 1 .036-.986 1.29 1.29 0 0 1 .217-.291 1.75 1.75 0 0 1 .48-.347c.363-.18.755-.293 1.158-.337a6.76 6.76 0 0 1 2.072.022c.81.088 1.613.231 2.402.43l.168.037v-3.974l-.31-.067a21.14 21.14 0 0 0-2.444-.435 12.545 12.545 0 0 0-3.213-.014 6.945 6.945 0 0 0-3.699 1.488 4.908 4.908 0 0 0-1.58 2.178 5.984 5.984 0 0 0-.003 4.05c.242.65.63 1.237 1.136 1.714.437.422.932.78 1.47 1.065.708.38 1.458.675 2.235.878.257.077.512.158.766.243l.385.141.11.045c.38.136.726.35 1.018.628.202.19.358.423.455.683.06.237.061.485.003.723a1.536 1.536 0 0 1-.744.892 3.691 3.691 0 0 1-1.239.387 9 9 0 0 1-1.92.097 21.973 21.973 0 0 1-2.507-.334c-.433-.09-.864-.19-1.291-.303l-.16-.04zM30.546 56.607h4.73V37.846h-4.73zM85.305 43.386a4.934 4.934 0 1 1 6.157 7.711 4.934 4.934 0 0 1-6.157-7.71m-6.867 3.848A9.87 9.87 0 0 0 90.44 56.72a9.629 9.629 0 0 0 3.157-17.729 9.934 9.934 0 0 0-15.16 8.244">
+      </path>
+      <use href="#bar_short" x="0"></use>
+      <use href="#bar_tall" x="0"></use>
+      <use href="#bar_grande" x="0"></use>
+      <use href="#bar_tall" x="25.875"></use>
+      <use href="#bar_short" x="51.75"></use>
+      <use href="#bar_tall" x="51.75"></use>
+      <use href="#bar_grande" x="51.75"></use>
+      <use href="#bar_tall" x="77.625"></use>
+      <use href="#bar_short" x="103.375"></use>
+    </g>
+  </svg>
+  <h1 class="fso-title">Full Stack Observability</h1>
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1690387749"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1690387749"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1690387749"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_application_security.html" title="Application Security" class="dd-item
+        
+        
+        
+        ">
+      <a href="/10_application_security.html">
+          Application Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_application_security/11_what_keeps_savi_awake.html" title="What Keeps Savi Awake" class="dd-item
+        
+        
+        
+        ">
+      <a href="/10_application_security/11_what_keeps_savi_awake.html">
+          What Keeps Savi Awake
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_application_security/12_why_cisco.html" title="Why Cisco" class="dd-item
+        
+        
+        
+        ">
+      <a href="/10_application_security/12_why_cisco.html">
+          Why Cisco
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_application_security/13_secure_app_setup.html" title="Secure App Setup" class="dd-item
+        
+        
+        
+        ">
+      <a href="/10_application_security/13_secure_app_setup.html">
+          Secure App Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10_application_security/14_lab_access.html" title="Lab Access" class="dd-item
+        
+        
+        
+        ">
+      <a href="/10_application_security/14_lab_access.html">
+          Lab Access
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_hands_on_observability.html" title="Hands-On Observability" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/20_hands_on_observability.html">
+          Hands-On Observability
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_hands_on_observability/21_understanding_app_security_state.html" title="Understanding Security State" class="dd-item
+        parent
+        active
+        
+        ">
+      <a href="/20_hands_on_observability/21_understanding_app_security_state.html">
+          Understanding Security State
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_hands_on_observability/22_attack_detection_prevention.html" title="Attack Detection Prevention" class="dd-item
+        
+        
+        
+        ">
+      <a href="/20_hands_on_observability/22_attack_detection_prevention.html">
+          Attack Detection Prevention
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_hands_on_observability/23_business_risk_profiling_prioritization.html" title="Risk Profiling Prioritization" class="dd-item
+        
+        
+        
+        ">
+      <a href="/20_hands_on_observability/23_business_risk_profiling_prioritization.html">
+          Risk Profiling Prioritization
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/20_hands_on_observability/24_vulnerability_assessment_remediation.html" title="Vulnerability Assess Remediate" class="dd-item
+        
+        
+        
+        ">
+      <a href="/20_hands_on_observability/24_vulnerability_assessment_remediation.html">
+          Vulnerability Assess Remediate
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/30_wrapup.html" title="Wrapup" class="dd-item
+        
+        
+        
+        ">
+      <a href="/30_wrapup.html">
+          Wrapup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://docs.appdynamics.com"><i class='fas fa-graduation-cap'></i> AppDynamics Documentation</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://docs.appdynamics.com/appd/23.x/latest/en/application-security-monitoring"><i class='fas fa-graduation-cap'></i> Secure Application Documentation</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://docs.thousandeyes.com/"><i class='fas fa-graduation-cap'></i> ThousandEyes Documentation</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://intersight.com/help/getting_started"><i class='fas fa-graduation-cap'></i> Intersight Documentation</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>    
+    <a href="https://www.cisco.com/c/en/us/about/legal/privacy-directory.html">Privacy</a> | <a
+        href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html">Terms &amp; Conditions</a> <br>
+        &copy; 2023, Cisco. All Rights Reserved.
+
+</left>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Cisco FSO</a> > <a href='/20_hands_on_observability.html'>Hands-On Observability</a> > Understanding Security State
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#appdynamics-application-dashboard">AppDynamics Application Dashboard</a></li>
+<li><a href="#csa-home-dashboard">CSA Home Dashboard</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#next-span-style-color-143c76-i-class-fas-fa-cog-fa-spin-fa-sm-i-span-nbsp">Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Understanding Security State
+            </h1>
+          
+ 
+        
+
+
+	
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Ali wants to have actionable information. In this lab, you will make sure Ali has a quick way to find how his Applications are doing from security point of view. Ali wants to be comfortable while navigating the Dashboard so he knows what kind of information is readily available to him.</p>
+
+<p><br></p>
+
+<h2 id="appdynamics-application-dashboard">AppDynamics Application Dashboard</h2>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Use the steps below to <strong>navigate to your TeaStore application</strong>.</p>
+
+<ol>
+<li>Click on the <strong>Applications</strong> tab on the top menu</li>
+<li>Find your <strong>TeaStore application</strong> with <strong>your lab number in the name</strong> and <strong>click on its name</strong> to open it</li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_01_B.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The <strong>Application Dashboard</strong> displays showing the components that comprise the TeaStore application.</p>
+
+<ol>
+<li>The <strong>Security Health</strong> widget displays the Business Risk Score in real time, the number of vulnerabilities divided by criticality, and the number of attacks that either compromised the security of your application, were blocked by the CSA attack policy, or the malicious activity was detected but not exploited.</li>
+<li>Click on the <strong>Security Health</strong> link to launch the <strong>Secure Application</strong> dashboard</li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_02_B_1.png" alt="image" /></p>
+
+<p><br></p>
+
+<h2 id="csa-home-dashboard">CSA Home Dashboard</h2>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The <strong>Home</strong> page provides a high-level overview of <strong>Attacks and Vulnerabilities</strong> of the monitored application.</p>
+
+<ol>
+<li><p>Navigate to the Home page by clicking the <strong>Home</strong> tab on the top menu</p></li>
+
+<li><p>The <strong>Business Transactions</strong> pane shows the number of business transactions based on their risk status detected, alongside the daily <strong>Busines Risk Score</strong>, and <strong>Top Recommended Actions</strong>.</p>
+
+<ul>
+<li>There are 3 business risk statuses based on the score:
+
+<ul>
+<li><strong>Normal</strong>: 0-330 &nbsp; <strong>Warning</strong>: 340-660 &nbsp; <strong>Critical</strong>: 670-1000</li>
+</ul></li>
+</ul></li>
+
+<li><p>The <strong>Vulnerabilities</strong> pane shows the number of both <strong>Open</strong> and <strong>Fixed</strong> vulnerabilities.</p>
+
+<ul>
+<li>The chart in the left represents the total number of vulnerabilities based on their risk score.</li>
+<li>The color of the chart displays the number of vulnerabilities for different severity levels:
+
+<ul>
+<li><strong>Critical</strong> = Red &nbsp; <strong>High</strong> = Orange &nbsp; <strong>Medium</strong> = Yellow &nbsp; <strong>Low</strong> = Purple</li>
+</ul></li>
+<li><strong>Severity Trend</strong> shows the number of security vulnerabilities by severity in a given period.</li>
+<li><strong>Days Since First Detected</strong> shows the number of days since the vulnerability has been open and its severity level.</li>
+</ul></li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_03_B.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Scroll down the screen to see the <strong>Attacks</strong> and <strong>Applications</strong> pane.</p>
+
+<ol>
+<li><p>The <strong>Attacks</strong> pane displays the number of Attacks by Outcome, Top Applications and Top Attack Types.</p>
+
+<ul>
+<li>The chart on the left shows the total number of <strong>Open</strong> attacks and their states:
+
+<ul>
+<li><strong>Exploited</strong> = Red &nbsp; <strong>Blocked</strong> = Purple &nbsp; <strong>Attempted</strong> = Yellow</li>
+</ul></li>
+<li><strong>Top Attack Types</strong> displays the top 10 attack events in different states (exploited, blocked or attempted)
+<br /></li>
+</ul></li>
+
+<li><p>The <strong>Applications</strong> pane displays the nodes of the application in question and the trend</p>
+
+<ul>
+<li><strong>Total Active Nodes</strong> Total number of APM nodes that are registered and active in the AppDynamics controller.</li>
+<li><strong>Supported Nodes</strong> Number of Active nodes that are running a Secure Application supported version of the agent.</li>
+<li><strong>Ready Nodes</strong> Number of Supported nodes that are sending heartbeats to the Secure Application service.</li>
+<li><strong>Enabled Nodes</strong> Number of Ready nodes that have a Security Setting value of Enable.</li>
+<li><strong>Secured Nodes</strong> Number of Enabled nodes that are sending security insights to the Secure Application service.</li>
+</ul></li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_04_B.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Next, you&rsquo;ll learn an alternative way to get into security monitoring while keeping an eye on the application performance dashboard.</p>
+
+<ol>
+<li>If you are in the CSA dashboard, scroll up and click the icon next to the name of your application
+
+<ul>
+<li>Alternatively, you can return to the AppDynamics APM Controller and open your application&rsquo;s dashboard as you did in the first step.</li>
+</ul></li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_05.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The application dashboard is the main source of information about application performance, but it also serves as a starting point when you want to look at other aspects of application observability, in your case application security. Previously, you used the <strong>Security Health</strong> widget to get into the CSA dashboard. Now you&rsquo;ll see that you can examine the performance and business risk of the application&rsquo;s business transactions in a single view, and then dive deeper into security as needed.</p>
+
+<ol>
+<li>Click on <strong>Business Transactions</strong> menu button.</li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_06.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Business transactions are key objects when it comes to monitoring application performance. But they also involve business risk associated with each of those transactions. AppSec teams can use this to decide if there is a security risk associated with any of the important business transactions.</p>
+
+<ol>
+<li>Click the <strong>Business Risk</strong> column heading to sort transactions by business risk in descending order.</li>
+<li>Double click on the business transaction with the highest business risk</li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_07.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; The following view focuses only on the selected business transaction.</p>
+
+<ol>
+<li>Click on the <strong>Business Risk</strong> link within the <strong>Security Health</strong> widget.</li>
+</ol>
+
+<p><img src="/images/20_hands_on/security_state_08.png" alt="image" /></p>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; From monitoring the performance of business transactions of the application, you quickly moved to business risk observability, where you can see the details about the security risk of business transactions, the associated vulnerabilities, attacks and options to address the risk.</p>
+
+<p>You will learn more about <strong>Business Risk Observability</strong> and its features in later exercises.</p>
+
+<p><img src="/images/20_hands_on/security_state_09.png" alt="image" />
+<br></p>
+
+<h2 id="summary">Summary</h2>
+
+<p><span style="color: #143c76;"><i class='fas fa-circle fa-sm'></i></span>&nbsp; Just by looking at the <strong>Home</strong> page of his Secure Application Dashboard, Ali has not only learned about his application and it&rsquo;s security state but he also has actionable information.</p>
+
+<ul>
+<li>Number of Open Vulnerabilities, their severity levels and the lifespan of those open vulnerabilities</li>
+<li>The business impact of vulnerabilities based on the Business Risk Score</li>
+<li>Open attacks that needs to be fixed and their states</li>
+<li>Top Applications with open attacks and event types</li>
+<li>Nodes of the application(s) that needs to be enabled and secured</li>
+</ul>
+
+<p><br></p>
+
+<h2 id="next-span-style-color-143c76-i-class-fas-fa-cog-fa-spin-fa-sm-i-span-nbsp">Next <span style="color: #143c76;"><i class='fas fa-cog fa-spin fa-sm'></i></span>&nbsp;</h2>
+
+<p>You&rsquo;ll look at how <strong>Cisco Secure Application</strong> easily enables <strong>Attack Detection and Prevention</strong> for your business crititcal applications.</p>
+
+<p><br></p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/20_hands_on_observability.html" title="Hands-On Observability"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/20_hands_on_observability/22_attack_detection_prevention.html" title="Attack Detection Prevention" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1690387749"></script>
+    <script src="/js/perfect-scrollbar.min.js?1690387749"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1690387749"></script>
+    <script src="/js/jquery.sticky.js?1690387749"></script>
+    <script src="/js/featherlight.min.js?1690387749"></script>
+    <script src="/js/highlight.pack.js?1690387749"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1690387749"></script>
+    <script src="/js/learn.js?1690387749"></script>
+    <script src="/js/hugo-learn.js?1690387749"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1690387749"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>

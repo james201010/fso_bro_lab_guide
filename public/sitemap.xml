@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/10_application_security.html</loc>
+  </url><url>
+    <loc>/10_application_security/11_what_keeps_savi_awake.html</loc>
+  </url><url>
+    <loc>/10_application_security/12_why_cisco.html</loc>
+  </url><url>
+    <loc>/10_application_security/13_secure_app_setup.html</loc>
+  </url><url>
+    <loc>/10_application_security/14_lab_access.html</loc>
+  </url><url>
+    <loc>/20_hands_on_observability.html</loc>
+  </url><url>
+    <loc>/20_hands_on_observability/21_understanding_app_security_state.html</loc>
+  </url><url>
+    <loc>/20_hands_on_observability/22_attack_detection_prevention.html</loc>
+  </url><url>
+    <loc>/20_hands_on_observability/23_business_risk_profiling_prioritization.html</loc>
+  </url><url>
+    <loc>/20_hands_on_observability/24_vulnerability_assessment_remediation.html</loc>
+  </url><url>
+    <loc>/30_wrapup.html</loc>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-01-25T12:52:26-07:00</lastmod>
+  </url><url>
+    <loc>/categories.html</loc>
+  </url><url>
+    <loc>/tags.html</loc>
+  </url>
+</urlset>

@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
 
-title = "Business Risk Observability Competency Workshop"
+title = "Full Stack Observability Labs"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= "true"
@@ -78,17 +78,17 @@ order = [".jpg$", ".gif$", ".png$"]
 [[deployment.targets]]
 name = "aws-s3"
 
-# !!! SEC LITE VS FULL START !!!
+# !!! LITE VS FULL START !!!
 
 # FULL
 #URL = "s3://security-fso-labs-static-site-templa-s3bucketroot-168ggwwhr9vrr?region=us-east-1"
 #cloudFrontDistributionID = "E3AGK5L4VGKGFJ"
 
 # LITE
-#URL = "s3://lt-security-fsolabs-net-static-site-s3bucketroot-1h7yqs7eec3h2?region=us-east-1"
-#cloudFrontDistributionID = "E2NDPH0Z008GYB"
+URL = "s3://lt-bro-fsolabs-net-static-site-templ-s3bucketroot-12vrv727d4zn8?region=us-east-1"
+cloudFrontDistributionID = "E2AB1QPHKJPJIK"
 
-# !!! SEC LITE VS FULL END !!!
+# !!! LITE VS FULL END !!!
 
 [[deployment.matchers]]
 # Cache static assets for 1 year.

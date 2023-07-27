@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Secure App Setup on Full Stack Observability Labs</title>
+    <link>/10_application_security/13_secure_app_setup.html</link>
+    <description>Recent content in Secure App Setup on Full Stack Observability Labs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/10_application_security/13_secure_app_setup/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
